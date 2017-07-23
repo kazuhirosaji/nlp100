@@ -5,13 +5,18 @@
 # その他の文字はそのまま出力
 # この関数を用い，英語のメッセージを暗号化・復号化せよ．
 
-def cipher(msg):
+def cipher(msg, encrypt = True):
     code = ''
     for s in msg:
         if (s.isalpha() and s.islower()):
-            code += chr(219 - ord(s))
+            if (encrypt):
+                code += chr(219 - ord(s))
         else:
             code += s
     return code
 
-print(cipher('I have an apple.'))
+enc = cipher('I have an apple.')
+dec = cipher(enc)
+
+print(enc)
+print(dec)
