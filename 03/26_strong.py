@@ -19,10 +19,10 @@ base_info = re.sub(r'\'{2,5}', "", base_info)
 
 # 辞書オブジェクトを作成
 ans = {}
-for fields in base_info.split('\n'):
+for fields in base_info.split('\n|'):
     f = fields.split(' = ')
     if len(f) > 1:
-        ans[f[0].replace('|', '')] = f[1]
+        ans[f[0]] = f[1]
 
 # 出力
 for key, val in ans.items():
